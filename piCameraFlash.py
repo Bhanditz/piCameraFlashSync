@@ -9,11 +9,11 @@ rutaDeGuardado = './'
 
 if __name__ == '__main__':
     camera = picamera.PiCamera()
-    camera.resolution = (2592, 1944)
+    camera.resolution = (2592, 1952)
     camera.framerate = 2
     camera.exposure_mode = 'sports'
     camera.flash_mode = 'on'
-    lowResCap = PiRGBAArray(camera,size=(2592, 1944))
+    lowResCap = PiRGBAArray(camera,size=(2592, 1952))
     piCameraStream = camera.capture_continuous(lowResCap,
                                                 format="bgra",
                                                 use_video_port=True)
