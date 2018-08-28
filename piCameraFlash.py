@@ -25,7 +25,7 @@ if __name__ == '__main__':
         cv2.imshow('Imagen',cv2.resize(imageArray,(320,240)))
         cv2.imwrite(rutaDeGuardado+'imagen_{}.jpg'.format(contador), imageArray)
         contador += 1
-        ch = 0xFF & waitKey(1)
+        ch = 0xFF & cv2.waitKey(1)
         if ch == ord('q'):
             break
 
