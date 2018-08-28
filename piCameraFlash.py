@@ -3,6 +3,7 @@ import sys
 import cv2
 import time
 import picamera
+from libraries.picameraArray import PiRGBAArray
 
 rutaDeGuardado = './'
 
@@ -12,7 +13,9 @@ if __name__ == '__main__':
     camera.framerate = 2
     camera.exposure_mode = 'sports'
     camera.flash_mode = 'on'
-    piCameraStream = camera.capture_continuous(format="bgra",
+    lowResCap = PiRGBAArray(camera)
+    piCameraStream = camera.capture_continuous(lowResCap,
+                                                format="bgra",
                                                 use_video_port=True)
     camera.start_preview()
     contador = 0
