@@ -22,7 +22,7 @@ if __name__ == '__main__':
     while True:
         lrs = piCameraStream.__next__()
         imageArray = lrs.array
-        cv2.imshow('Imagen',v2.resize(imageArray,(320,240)))
+        cv2.imshow('Imagen',cv2.resize(imageArray,(320,240)))
         cv2.imwrite(rutaDeGuardado+'imagen_{}.jpg'.format(contador), imageArray)
         contador += 1
         ch = 0xFF & waitKey(1)
