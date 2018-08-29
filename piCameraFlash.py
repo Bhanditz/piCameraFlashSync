@@ -9,7 +9,7 @@ rutaDeGuardado = './'
 
 if __name__ == '__main__':
     # We initialize some parameters within the initializer so It has better performance
-    camera = picamera.PiCamera(resolution = (2592, 1952),framerate = 2,sensor_mode=0,clock_mode='reset')
+    camera = picamera.PiCamera(resolution = (3280,2464),framerate = 2,sensor_mode=0,clock_mode='reset')
     camera.exposure_mode = 'sports'
     camera.flash_mode = 'on'
     lowResCap = PiRGBAArray(camera)
