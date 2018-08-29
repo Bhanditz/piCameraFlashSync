@@ -29,6 +29,7 @@ if __name__ == '__main__':
     #camera.start_preview()
     tiempo = time.time()
     with picamera.PiCamera(resolution = (2592,1944),framerate = 2,sensor_mode=0,clock_mode='reset') as camera:
+        camera.exposure_mode = 'sports'
         #with picamera.array.PiRGBArray(camera) as output:
         with PiRGBAArray(camera) as output:
             while contador <1000:
