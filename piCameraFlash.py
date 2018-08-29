@@ -32,7 +32,7 @@ if __name__ == '__main__':
         with picamera.array.PiRGBAArray(camera) as output:
             camera.format="bgra",
             camera.use_video_port=True
-            while True:
+            while contador <1000:
                 #if contador == 1:
                 #    print(camera.sensor_mode)
                 #lrs = piCameraStream.__next__()
