@@ -21,9 +21,9 @@ if __name__ == '__main__':
     #camera.flash_mode = 'on'
     #lowResCap = PiRGBAArray(camera)
     #piCameraStream = camera.capture_continuous(lowResCap,
-                                                format="bgra",
-                                                splitter_port=2,
-                                                use_video_port=True)
+    #                                            format="bgra",
+    #                                            splitter_port=2,
+    #                                            use_video_port=True)
 
     contador = 0
     #camera.start_preview()
