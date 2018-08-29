@@ -29,7 +29,9 @@ if __name__ == '__main__':
     #camera.start_preview()
     tiempo = time.time()
     with picamera.PiCamera(resolution = (2592,1944),framerate = 2,sensor_mode=0,clock_mode='reset') as camera:
-        with picamera.array.PiRGBArray(camera) as output:
+        with picamera.array.PiRGBAArray(camera) as output:
+            camera.format="bgra",
+            camera.use_video_port=True
             while True:
                 #if contador == 1:
                 #    print(camera.sensor_mode)
@@ -38,7 +40,7 @@ if __name__ == '__main__':
                 #lowResCap.truncate(0)
                 GPIO.output(pinInput,GPIO.HIGH)
                 tiempoCapture1 = time.time()
-                camera.capture(output, 'rgb')
+                #camera.capture(output, 'rgb')
                 print('Capture only: ',time.time()-tiempoCapture1)
                 GPIO.output(pinInput,GPIO.LOW)
                 #print('Captured %dx%d image' % (output.array.shape[1], output.array.shape[0]))
