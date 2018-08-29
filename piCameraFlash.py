@@ -28,10 +28,9 @@ if __name__ == '__main__':
     contador = 0
     #camera.start_preview()
     tiempo = time.time()
-    with picamera.PiCamera(resolution = (2592,1944),framerate = 2,sensor_mode=0,clock_mode='reset') as camera:
+    with picamera.PiCamera(resolution = (2592,1944),format="bgra",framerate = 2,sensor_mode=0,clock_mode='reset') as camera:
         #with picamera.array.PiRGBArray(camera) as output:
         with PiRGBAArray(camera) as output:
-            camera.format="bgra",
             camera.use_video_port=True
             while contador <1000:
                 #if contador == 1:
