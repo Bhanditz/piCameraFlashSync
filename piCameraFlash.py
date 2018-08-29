@@ -8,18 +8,19 @@ from libraries.picameraArray import PiRGBAArray
 rutaDeGuardado = './'
 
 if __name__ == '__main__':
-    camera = picamera.PiCamera()
-    camera.resolution = (2592, 1952)
-    camera.framerate = 2
+    # We initialize some parameters within the initializer so It has better performance
+    camera = picamera.PiCamera(resolution = (2592, 1952),framerate = 2,sensor_mode=0,clock_mode='reset')
     camera.exposure_mode = 'sports'
     camera.flash_mode = 'on'
     lowResCap = PiRGBAArray(camera)
     piCameraStream = camera.capture_continuous(lowResCap,
                                                 format="bgra",
                                                 use_video_port=True)
-    camera.start_preview()
+
     contador = 0
     while True:
+        if contador == 1:
+            print(camera.sensor_mode)
         lrs = piCameraStream.__next__()
         imageArray = lrs.array
         cv2.imshow('Imagen',cv2.resize(imageArray,(320,240)))
@@ -28,5 +29,4 @@ if __name__ == '__main__':
         ch = 0xFF & cv2.waitKey(1)
         if ch == ord('q'):
             break
-
-    camera.stop_preview()
+    camera.close()
