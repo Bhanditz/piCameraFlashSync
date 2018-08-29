@@ -27,7 +27,7 @@ if __name__ == '__main__':
 
     contador = 0
     #camera.start_preview()
-    with picamera.PiCamera() as camera:
+    with picamera.PiCamera(resolution = (2592,1944),framerate = 2,sensor_mode=0,clock_mode='reset') as camera:
         with picamera.array.PiRGBArray(camera) as output:
             while True:
                 #if contador == 1:
@@ -39,8 +39,8 @@ if __name__ == '__main__':
                 camera.capture(output, 'rgb')
                 print('Captured %dx%d image' % (output.array.shape[1], output.array.shape[0]))
                 output.truncate(0)
-                print(type(output.array))
-                #cv2.imshow('Imagen',cv2.resize(imageArray,(320,240)))
+                #print(type(output.array))
+                cv2.imshow('Imagen',cv2.resize(output.array,(320,240))
                 #cv2.imwrite(rutaDeGuardado+'imagen_{}.jpg'.format(contador), imageArray)
                 contador += 1
                 ch = 0xFF & cv2.waitKey(1)
