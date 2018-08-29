@@ -40,7 +40,7 @@ if __name__ == '__main__':
                 print('Captured %dx%d image' % (output.array.shape[1], output.array.shape[0]))
                 output.truncate(0)
                 #print(type(output.array))
-                cv2.imshow('Imagen',cv2.resize(output.array,(320,240))
+                cv2.imshow('Imagen',cv2.resize(output.array,(320,240)))
                 #cv2.imwrite(rutaDeGuardado+'imagen_{}.jpg'.format(contador), imageArray)
                 contador += 1
                 ch = 0xFF & cv2.waitKey(1)
